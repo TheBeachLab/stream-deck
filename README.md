@@ -10,7 +10,7 @@ A free and open source alternative to [elgato streamdeck](https://www.elgato.com
 
 ## What you need
 
-- Linux (Apple victims and Windows ~~loosers~~ users see below). I use Arch.
+- Linux (Apple victims and Windows ~~loosers~~ users see below). I use Arch Linux but should work in any distribution..
 - Python 3 and a bunch of python libs (check the import section of the script)
 - An old keyboard, I am using an Apple one but any one will do.
 

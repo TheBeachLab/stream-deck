@@ -9,11 +9,11 @@ import signal, sys # catch CTRL-C
 import psutil # check running processes
 import subprocess
 from evdev import InputDevice, categorize, ecodes as e
-#import time, rtmidi, mido
-#import notify2
+import time, rtmidi, mido
+import notify2
 
 # init notification system
-#notify2.init('Deck controller')
+notify2.init('Deck controller')
 
 # CONTROL-C
 ## def signal_handler(sig, frame):
@@ -26,7 +26,7 @@ try:
     dev.grab()
     os.system('clear') # clear console
     print ('Apple keyboard connected')
-    #notify2.Notification("Deck activated","Apple keyboard connected").show()
+    notify2.Notification("Deck activated","Apple keyboard connected").show()
     #print('Press Ctrl+C to exit')
 except:
     print ('Apple keyboard NOT connected or another program grabbing it!')
@@ -126,13 +126,13 @@ try:
             #
             if key.keycode == 'KEY_1':
                 subprocess.call('xdotool key Alt_L+Shift_L+1'.split())
-                #print('Switch to scene 1')
+                print('Switch to scene 1')
             if key.keycode == 'KEY_2':
                 subprocess.call('xdotool key Alt_L+Shift_L+2'.split())
-                #print('Switch to scene 2')
+                print('Switch to scene 2')
             if key.keycode == 'KEY_3':
                 subprocess.call('xdotool key Alt_L+Shift_L+3'.split())
-                #print('Switch to scene 3')
+                print('Switch to scene 3')
             if key.keycode == 'KEY_4':
                 subprocess.call('xdotool key Alt_L+Shift_L+4'.split())
                 print('Switch to scene 4')
@@ -158,9 +158,8 @@ try:
             # QWERTY...
             #
             if key.keycode == 'KEY_Q':
-                #msg = mido.Message("note_on", note=36, velocity=100, time=10)
-                #msg.copy(channel=1)
-                pass
+                msg = mido.Message("note_on", note=36, velocity=100, time=10)
+                msg.copy(channel=1)
             #
             # PAGE UP DOWN
             #
@@ -234,5 +233,5 @@ try:
                 subprocess.call('xdotool key Super_L+Down'.split())
 except:
   print('Keyboard disconnected')
-  #notify2.Notification("Deck stopped","Apple keyboard disconnected").show()
+  notify2.Notification("Deck stopped","Apple keyboard disconnected").show()
   exit()
