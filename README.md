@@ -31,6 +31,9 @@ I downloaded most of the icons from https://www.flaticon.com credit goes to each
 
 The [script](autohotkey.py) is a python program that *grabs* the keyboard an then launches programs, emulate keystokes and soon will also send MIDI messages. Modify your keyboard `by-id` value.
 
+Check the key events with `evtest` and select the device keyboard to monitor.
+
+
 ## Hotplug 
 
 To execute the script when I plug the keyboard I created a udev rule `/etc/udev/rules.d/99-apple-keyboard.rules` with this content:
